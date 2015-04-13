@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Operadors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Matricula</th>
+      <th>Dateniver</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @operadors.each do |operador| %>
+      <tr>
+        <td><%= operador.nome %></td>
+        <td><%= operador.matricula %></td>
+        <td><%= operador.dateniver %></td>
+        <td><%= link_to 'Show', operador %></td>
+        <td><%= link_to 'Edit', edit_operador_path(operador) %></td>
+        <td><%= link_to 'Destroy', operador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Operador', new_operador_path %>

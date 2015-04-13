@@ -11,33 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407214731) do
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "age",        limit: 4
-    t.string   "phone",      limit: 255
-    t.boolean  "is_active",  limit: 1,   default: true
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "email",      limit: 255
-    t.string   "password",   limit: 255
-  end
+ActiveRecord::Schema.define(version: 20150413135606) do
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "nome",         limit: 4
+    t.string   "descricao",    limit: 255
+    t.integer  "codigo",       limit: 4
+    t.integer  "codigosector", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "operators", force: :cascade do |t|
+    t.string   "nome",       limit: 255
+    t.integer  "matricula",  limit: 4
+    t.date     "dateniver"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.integer  "price",       limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "category_id", limit: 4
+    t.string   "nome",           limit: 255
+    t.string   "descicao",       limit: 255
+    t.integer  "codigo",         limit: 4
+    t.integer  "codigocategory", limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "sectors", force: :cascade do |t|
+    t.string   "nome",       limit: 255
+    t.string   "descricao",  limit: 255
+    t.integer  "codigo",     limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
